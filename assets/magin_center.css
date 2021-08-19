@@ -1,0 +1,19 @@
+Div {
+	text-align: center;
+	margin: 5px;
+	text-justify: middle;
+	justify-content: center;
+	text-shadow: 1, aqua;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	text-align: center;
+	margin: 20px;
+	justify-content: center;
+	text-justify: middle;
+	text-shadow: 1, aqua;
+}
