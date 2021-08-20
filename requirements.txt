@@ -194,7 +194,6 @@ sphinxcontrib-jsmath==1.0.1
 sphinxcontrib-qthelp==1.0.3
 sphinxcontrib-serializinghtml==1.1.5
 sqlparse==0.4.1
-TBB==0.2
 tenacity==8.0.1
 tensorboard==2.6.0
 tensorboard-data-server==0.6.1
