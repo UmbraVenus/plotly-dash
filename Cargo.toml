@@ -1,0 +1,9 @@
+[package]
+name = "foo"
+version = "0.1.0"
+authors = ["Sage Ren <sage.shijie.ren@gmail.com>"]
+
+[dependencies]
+
+[target.heroku]
+version = "nightly"
