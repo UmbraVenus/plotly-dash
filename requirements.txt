@@ -1,3 +1,4 @@
+!curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 pip==21.2.4
 setuptools-rust
 absl-py==0.13.0
