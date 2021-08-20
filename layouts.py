@@ -18,9 +18,38 @@ import re
 from PyPDF3 import PdfFileWriter, PdfFileReader
 import io
 import datetime
+import dash_uploader as du
+import uuid
+
+def get_upload_component(id):
+    return du.Upload(
+        id=id,
+        max_file_size=1800,  # 1800 Mb
+        upload_id=uuid.uuid1(),  # Unique session id
+    )
+
+navbar = dbc.NavbarSimple(
+    children=[
+        dbc.NavItem(dbc.NavLink("Index", href="/index")),
+        dbc.DropdownMenu(
+            children=[
+                dbc.DropdownMenuItem("More pages", header=True),
+                dbc.DropdownMenuItem("Summarization and Paraphrasing", href="/sum_para"),
+                dbc.DropdownMenuItem("PDF2CSV", href="/ocr"),
+            ],
+            nav=True,
+            in_navbar=True,
+            label="More",
+        ),
+    ],
+    brand="AWCA",
+    brand_href="#",
+    color="Primary",
+)
 
 layout1 = html.Div(
     [
+        navbar,
         dbc.Row(
             [
             html.H6("Text Summarizer and Paraphraser!")]),
@@ -46,23 +75,28 @@ layout1 = html.Div(
 
 layout2 = html.Div(
     [
-        dbc.Row(
-            [
-            html.H6("OCR-PDF2CSV!")]),
-        dbc.Row(
-            [dbc.Col(
-                [html.Div([
-                    dcc.Upload(
-                        id='upload-data',
-                        children=html.Div([
-                        'Drag and Drop or ',
-                        html.A('Select Files')
-                        ]), multiple=True,),
-                    html.Div(id='output-data-upload'),]
-                ),],),
-            dbc.Col([
-                html.Button("Download CSV", id="btn_csv"),
-                dcc.Download(id="download-dataframe-csv"),])
-            ]),
-        dcc.Link('Home', href='/index')
-    ],)
+        html.H1("OCR-PDF2CSV"),
+        html.H2("Upload"),
+        dcc.Upload(
+            id="upload-data",
+            children=html.Div(
+                ["Drag and drop or click to select a file to upload."]
+            ),
+            style={
+                "width": "100%",
+                "height": "60px",
+                "lineHeight": "60px",
+                "borderWidth": "1px",
+                "borderStyle": "dashed",
+                "borderRadius": "5px",
+                "textAlign": "center",
+                "margin": "10px",
+            },
+            multiple=True,
+        ),
+        html.H2("File List"),
+        html.Button("Download CSV", id="btn_csv"),
+        dcc.Download(id="download-dataframe-csv"),
+        dcc.Link('Home', href='/index'),
+    ],
+)

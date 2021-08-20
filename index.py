@@ -5,16 +5,39 @@ from dash.dependencies import Input, Output
 from app import app
 from layouts import layout1, layout2
 import callbacks
+import dash_bootstrap_components as dbc
 
 app.layout = html.Div([
     dcc.Location(id='url', refresh=False),
     html.Div(id='page-content')
 ])
 
+
+
+navbar = dbc.NavbarSimple(
+    children=[
+        dbc.NavItem(dbc.NavLink("Index", href="/index")),
+        dbc.DropdownMenu(
+            children=[
+                dbc.DropdownMenuItem("More pages", header=True),
+                dbc.DropdownMenuItem("Summarization and Paraphrasing", href="/sum_para"),
+                dbc.DropdownMenuItem("PDF2CSV", href="/ocr"),
+            ],
+            nav=True,
+            in_navbar=True,
+            label="More",
+        ),
+    ],
+    brand="AWCA",
+    brand_href="#",
+    color="Primary",
+)
+
 layout_index = html.Div([
     dcc.Link('Navigate to "/sum-para"', href='/sum_para'),
     html.Br(),
     dcc.Link('Navigate to "/ocr"', href='/ocr'),
+    navbar
 ])
 
 @app.callback(Output('page-content', 'children'),

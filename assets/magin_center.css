@@ -4,6 +4,7 @@ Div {
 	text-justify: middle;
 	justify-content: center;
 	text-shadow: 1, aqua;
+	vertical-align: middle;
 }
 h1,
 h2,
