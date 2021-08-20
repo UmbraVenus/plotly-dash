@@ -5,3 +5,6 @@ authors = ["Sage Ren <sage.shijie.ren@gmail.com>"]
 
 [dependencies]
 bitflags = "1.0.4"
+
+[target.heroku]
+VERSION = "Nightly"
