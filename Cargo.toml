@@ -4,7 +4,7 @@ version = "0.1.0"
 authors = ["Sage Ren <sage.shijie.ren@gmail.com>"]
 
 [dependencies]
-bitflags = "=1.0.4"
+bitflags = "1.0.4"
 
 [target.heroku]
 version = "nightly"
