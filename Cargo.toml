@@ -7,4 +7,3 @@ authors = ["Sage Ren <sage.shijie.ren@gmail.com>"]
 bitflags = "1.0.4"
 
 [target.heroku]
-version = "nightly"
