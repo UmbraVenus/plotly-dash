@@ -3,3 +3,4 @@ libssl-dev
 libffi-dev 
 python-dev
 rustc
+rust-nightly
