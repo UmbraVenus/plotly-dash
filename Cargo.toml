@@ -8,3 +8,6 @@ bitflags = "1.0.4"
 
 [target.heroku]
 VERSION = "Nightly"
+
+[RustConfig]
+RUST_SKIP_BUILD=1
