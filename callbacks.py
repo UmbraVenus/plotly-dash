@@ -25,7 +25,7 @@ import dash_uploader as du
 import uuid
 from pathlib import Path
 
-from app import app, server
+from app import app, application
 
 UPLOAD_DIRECTORY = "./app_uploaded_files/"
 
@@ -34,7 +34,7 @@ if not os.path.exists(UPLOAD_DIRECTORY):
 
 du.configure_upload(app, UPLOAD_DIRECTORY)
 
-@server.route("/download/<path:path>")
+@application.route("/download/<path:path>")
 def download(path):
     """Serve a file from the upload directory."""
     return send_from_directory(UPLOAD_DIRECTORY, path, as_attachment=True)
