@@ -73,6 +73,7 @@ layout1 = html.Div(
             dcc.Link('Home', href='/index'),],
     style={"text-align":"center","verticalAlign":"middle","margin":20})
 
+"""
 layout2 = html.Div(
     [
         html.H1("OCR-PDF2CSV"),
@@ -100,3 +101,4 @@ layout2 = html.Div(
         dcc.Link('Home', href='/index'),
     ],
 )
+"""

@@ -71,6 +71,7 @@ def update_output(n_clicks, value):
         value = paraphrasing.paraphrase(value)
         return 'Here is the result: \n{}'.format(value)
 
+"""
 # ocr =============
 def populate_csv(files):
     page_ids = []
@@ -107,20 +108,19 @@ def populate_csv(files):
         'page_texts': page_texts
     })
     return csv
-"""
+
 def parse_contents(contents, filename):
     return html.Div([
         html.H5(filename),
         html.Hr(),  # horizontal line
     ])
-"""
+
 
 @app.callback(
     Output("download-dataframe-csv", "data"),
     [Input("upload-data", "filename"), Input("upload-data", "contents"),Input("btn_csv", "n_clicks"),],prevent_initial_call=True,
 )
 def update_output(uploaded_filenames, uploaded_file_contents,n_clicks):
-    """Save uploaded files and regenerate the file list."""
 
     if uploaded_filenames is not None and uploaded_file_contents is not None:
         for name, data in zip(uploaded_filenames, uploaded_file_contents):
@@ -134,8 +134,8 @@ def update_output(uploaded_filenames, uploaded_file_contents,n_clicks):
         html.Li("Upload Completed")
     return dcc.send_data_frame(newfile.to_csv, "mydf.csv")
     
-
-""""
+"""
+"""
 @app.callback(
     Output('callback-output', 'children'),
     Output("download-dataframe-csv", "data"),
